@@ -1,20 +1,22 @@
-import { Slot } from "expo-router";
 import "../global.css";
-import { View, Text } from "react-native";
-import { nowPlayingAction } from "@/core/actions/movies/now-playing.action";
-import { useEffect } from "react";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import {  Stack } from "expo-router";
+
+
+  // Create a client
+const queryClient = new QueryClient()
 
 const RootLayout = () =>{
 
   
-    useEffect(() => {
-        nowPlayingAction()
-    }, [])
-    
+
     return(
-        <View>
-            <Text>Root</Text>
-        </View>
+        <QueryClientProvider client={queryClient}>
+             <Stack screenOptions={{
+                    headerShown:false
+             }}/>
+        </QueryClientProvider>
+
     )
 } 
 export default RootLayout;

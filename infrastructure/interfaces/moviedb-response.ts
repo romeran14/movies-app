@@ -6,7 +6,7 @@ export interface IMovieDBMoviesResponse {
   total_results: number;
 }
 
-interface Result {
+export interface Result {
   adult: boolean;
   backdrop_path: string;
   genre_ids: number[];
